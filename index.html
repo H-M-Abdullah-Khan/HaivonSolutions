@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haivon Solutions | Global Digital Innovation & Technology Services</title>
+    <title>Haivon Solutions | Digital Innovation & Technology Services</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -11,8 +11,9 @@
             --secondary: #1cdaff;
             --dark: #000000;
             --light: #ffffff;
-            --glass: rgba(255, 255, 255, 0.1);
-            --glass-border: rgba(255, 255, 255, 0.2);
+            --gray: #1a1a1a;
+            --medium-gray: #333333;
+            --light-gray: #f5f5f5;
         }
         
         * {
@@ -31,7 +32,6 @@
             color: var(--light);
             line-height: 1.6;
             overflow-x: hidden;
-            background: linear-gradient(135deg, #000000 0%, #0a0a0a 100%);
         }
         
         /* Header & Navigation */
@@ -41,14 +41,13 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(10px);
             padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             transition: all 0.3s ease;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .logo {
@@ -145,13 +144,10 @@
         }
         
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             margin-bottom: 1.5rem;
             line-height: 1.2;
             font-weight: 700;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease forwards;
         }
         
         .hero h1 span {
@@ -161,20 +157,14 @@
         .hero p {
             font-size: 1.2rem;
             margin-bottom: 2.5rem;
-            color: #ffffff;
+            color: #cccccc;
             line-height: 1.6;
             max-width: 90%;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.3s forwards;
         }
         
         .hero-buttons {
             display: flex;
             gap: 1rem;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 1s ease 0.6s forwards;
         }
         
         .btn {
@@ -187,24 +177,17 @@
             align-items: center;
             gap: 10px;
             font-size: 1rem;
-            position: relative;
-            overflow: hidden;
         }
         
         .btn-primary {
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             color: var(--dark);
-            box-shadow: 0 0 10px rgba(0, 252, 168, 0.5), 0 0 20px rgba(0, 252, 168, 0.3);
-            border: 1px solid rgba(0, 252, 168, 0.5);
-            animation: neonPulse 2s infinite alternate;
+            box-shadow: 0 4px 15px rgba(0, 252, 168, 0.2);
         }
         
         .btn-secondary {
             border: 2px solid var(--secondary);
             color: var(--secondary);
-            background: transparent;
-            box-shadow: 0 0 10px rgba(28, 218, 255, 0.5), 0 0 20px rgba(28, 218, 255, 0.3);
-            animation: neonPulseBlue 2s infinite alternate;
         }
         
         .btn:hover {
@@ -212,12 +195,11 @@
         }
         
         .btn-primary:hover {
-            box-shadow: 0 0 15px rgba(0, 252, 168, 0.7), 0 0 30px rgba(0, 252, 168, 0.5);
+            box-shadow: 0 6px 20px rgba(0, 252, 168, 0.3);
         }
         
         .btn-secondary:hover {
             background: rgba(28, 218, 255, 0.1);
-            box-shadow: 0 0 15px rgba(28, 218, 255, 0.7), 0 0 30px rgba(28, 218, 255, 0.5);
         }
         
         .hero-visual {
@@ -266,34 +248,10 @@
             50% { transform: translateY(-20px); }
         }
         
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        
-        @keyframes neonPulse {
-            from {
-                box-shadow: 0 0 10px rgba(0, 252, 168, 0.5), 0 0 20px rgba(0, 252, 168, 0.3);
-            }
-            to {
-                box-shadow: 0 0 15px rgba(0, 252, 168, 0.7), 0 0 30px rgba(0, 252, 168, 0.5);
-            }
-        }
-        
-        @keyframes neonPulseBlue {
-            from {
-                box-shadow: 0 0 10px rgba(28, 218, 255, 0.5), 0 0 20px rgba(28, 218, 255, 0.3);
-            }
-            to {
-                box-shadow: 0 0 15px rgba(28, 218, 255, 0.7), 0 0 30px rgba(28, 218, 255, 0.5);
-            }
-        }
-        
-        /* Common Section Styles */
-        section {
-            padding: 6rem 5%;
+        /* Services Section */
+        .services {
+            padding: 8rem 5%;
+            background: var(--gray);
         }
         
         .section-title {
@@ -308,46 +266,72 @@
         }
         
         .section-title p {
-            color: #ffffff;
+            color: #cccccc;
             max-width: 600px;
             margin: 0 auto;
             font-size: 1.1rem;
         }
         
-        /* Animation Classes */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
         }
         
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        /* Glassmorphism Card */
-        .glass-card {
-            background: var(--glass);
-            border-radius: 16px;
+        .service-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
             padding: 2.5rem 2rem;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             z-index: 1;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .glass-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            border-color: rgba(255, 255, 255, 0.3);
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: -1;
+        }
+        
+        .service-card:hover::before {
+            opacity: 0.1;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+        }
+        
+        .service-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .service-card p {
+            color: #cccccc;
+            line-height: 1.6;
         }
         
         /* About Section */
         .about {
-            background: transparent;
+            padding: 8rem 5%;
+            background: var(--dark);
         }
         
         .about-content {
@@ -361,11 +345,10 @@
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
-            color: white;
         }
         
         .about-text p {
-            color: #ffffff;
+            color: #cccccc;
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
             line-height: 1.7;
@@ -380,11 +363,6 @@
         
         .stat {
             text-align: center;
-            background: var(--glass);
-            padding: 1.5rem;
-            border-radius: 12px;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
         }
         
         .stat-number {
@@ -395,108 +373,82 @@
         }
         
         .stat-text {
-            color: #ffffff;
+            color: #cccccc;
             font-size: 0.9rem;
         }
         
         .about-visual {
             position: relative;
             height: 400px;
-            background: var(--glass);
-            border-radius: 16px;
+            background: var(--medium-gray);
+            border-radius: 8px;
             overflow: hidden;
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
         }
         
-        /* Services Section */
-        .services {
-            background: transparent;
+        .about-visual::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(0, 252, 168, 0.1), rgba(28, 218, 255, 0.1));
         }
         
-        .services-grid {
+        /* Portfolio Section */
+        .portfolio {
+            padding: 8rem 5%;
+            background: var(--gray);
+        }
+        
+        .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
         }
         
-        .service-card {
-            background: var(--glass);
-            border-radius: 16px;
-            padding: 2.5rem 2rem;
-            transition: all 0.3s ease;
-            position: relative;
+        .portfolio-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
             overflow: hidden;
-            z-index: 1;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
-            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
         
-        .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
-            color: white;
-        }
-        
-        .service-card p {
-            color: #ffffff;
-            line-height: 1.6;
-        }
-        
-        /* Clients Section */
-        .clients {
-            background: transparent;
-        }
-        
-        .clients-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 3rem;
-            align-items: center;
-            justify-items: center;
-        }
-        
-        .client-logo {
-            width: 150px;
-            height: 80px;
+        .portfolio-img {
+            height: 200px;
+            background: var(--medium-gray);
             display: flex;
             align-items: center;
             justify-content: center;
-            filter: grayscale(100%) brightness(70%);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-        
-        .client-logo:hover {
-            filter: none;
-            transform: scale(1.1);
-        }
-        
-        .client-logo i {
-            font-size: 3rem;
-            color: #888;
-            transition: all 0.3s ease;
-        }
-        
-        .client-logo:hover i {
             color: var(--primary);
-            text-shadow: 0 0 10px rgba(0, 252, 168, 0.5);
+            font-size: 3rem;
+        }
+        
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+        
+        .portfolio-content h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .portfolio-content p {
+            color: #cccccc;
+            font-size: 0.95rem;
         }
         
         /* Testimonials Section */
         .testimonials {
-            background: transparent;
+            padding: 8rem 5%;
+            background: var(--dark);
         }
         
         .testimonials-grid {
@@ -506,16 +458,20 @@
         }
         
         .testimonial-card {
-            background: var(--glass);
-            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
             padding: 2rem;
             transition: all 0.3s ease;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
         }
         
         .testimonial-text {
-            color: #ffffff;
+            color: #cccccc;
             font-style: italic;
             margin-bottom: 1.5rem;
             line-height: 1.6;
@@ -530,23 +486,21 @@
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background: var(--glass);
+            background: var(--medium-gray);
             margin-right: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary);
-            border: 1px solid var(--glass-border);
         }
         
         .author-info h4 {
             font-size: 1.1rem;
             margin-bottom: 0.2rem;
-            color: white;
         }
         
         .author-info p {
-            color: #ffffff;
+            color: #cccccc;
             font-size: 0.9rem;
         }
         
@@ -563,19 +517,19 @@
             font-size: 2.5rem;
             margin-bottom: 1.5rem;
             font-weight: 700;
-            color: white;
         }
         
         .cta-section p {
             max-width: 600px;
             margin: 0 auto 2.5rem;
-            color: #ffffff;
+            color: #cccccc;
             font-size: 1.1rem;
         }
         
         /* Contact Section */
         .contact {
-            background: transparent;
+            padding: 8rem 5%;
+            background: var(--gray);
         }
         
         .contact-content {
@@ -591,7 +545,7 @@
         }
         
         .contact-info p {
-            color: #ffffff;
+            color: #cccccc;
             margin-bottom: 2rem;
             line-height: 1.7;
         }
@@ -619,11 +573,10 @@
         }
         
         .contact-form {
-            background: var(--glass);
+            background: rgba(255, 255, 255, 0.05);
             padding: 2.5rem;
-            border-radius: 16px;
-            border: 1px solid var(--glass-border);
-            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .form-group {
@@ -633,16 +586,16 @@
         .form-group label {
             display: block;
             margin-bottom: 0.5rem;
-            color: #ffffff;
+            color: #cccccc;
         }
         
         .form-group input,
         .form-group textarea {
             width: 100%;
             padding: 0.8rem 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid var(--glass-border);
-            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 4px;
             color: var(--light);
             font-size: 1rem;
         }
@@ -655,7 +608,7 @@
         
         /* Footer */
         footer {
-            background: rgba(0, 0, 0, 0.9);
+            background: var(--dark);
             color: var(--light);
             padding: 4rem 5% 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -683,7 +636,7 @@
         }
         
         .footer-column ul li a {
-            color: #ffffff;
+            color: #cccccc;
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -735,7 +688,11 @@
                 height: 400px;
             }
             
-            .about-content, .contact-content {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-content {
                 grid-template-columns: 1fr;
             }
         }
@@ -756,8 +713,6 @@
                 transition: left 0.3s ease;
                 padding: 2rem;
                 box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
-                backdrop-filter: blur(10px);
-                border-right: 1px solid rgba(255, 255, 255, 0.1);
             }
             
             nav.active {
@@ -799,11 +754,6 @@
             .about-stats {
                 grid-template-columns: 1fr;
             }
-            
-            .clients-grid {
-                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-                gap: 2rem;
-            }
         }
         
         @media (max-width: 576px) {
@@ -823,13 +773,16 @@
                 font-size: 2rem;
             }
             
-            .services-grid, .testimonials-grid {
+            .services-grid {
                 grid-template-columns: 1fr;
             }
             
-            .clients-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .testimonials-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -848,9 +801,9 @@
         <nav id="mainNav">
             <ul>
                 <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="#services">Services</a></li>
-                <li><a href="#clients">Clients</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -862,11 +815,11 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Ready To Launch Your Business <span>Just On One Click</span></h1>
-            <p>Haivon Solutions delivers cutting-edge technology services that transform your ideas into reality. With our expertise, your business can reach new heights in the digital world.</p>
+            <h1>Digital Innovation <span>Transforming</span> Businesses</h1>
+            <p>Haivon Solutions delivers cutting-edge technology services that drive growth, enhance efficiency, and create exceptional digital experiences for businesses worldwide.</p>
             <div class="hero-buttons">
                 <a href="#services" class="btn btn-primary">
-                    <i class="fas fa-rocket"></i> Explore Services
+                    <i class="fas fa-rocket"></i> Our Services
                 </a>
                 <a href="#contact" class="btn btn-secondary">
                     <i class="fas fa-paper-plane"></i> Contact Us
@@ -882,51 +835,16 @@
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="section-title fade-in">
-            <h2>About Haivon Solutions</h2>
-            <p>Leading the digital transformation with innovative technology solutions</p>
-        </div>
-        
-        <div class="about-content">
-            <div class="about-text fade-in">
-                <h2>We Transform Ideas Into Digital Reality</h2>
-                <p>Haivon Solutions is a premier technology company specializing in cutting-edge digital solutions for businesses of all sizes. With a team of experienced developers, designers, and strategists, we deliver innovative products that drive growth and create competitive advantages.</p>
-                <p>Our approach combines technical expertise with business acumen to develop solutions that not only meet technical requirements but also align with your strategic objectives and deliver measurable ROI.</p>
-                
-                <div class="about-stats">
-                    <div class="stat fade-in">
-                        <div class="stat-number">150+</div>
-                        <div class="stat-text">Projects Completed</div>
-                    </div>
-                    <div class="stat fade-in">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-text">Happy Clients</div>
-                    </div>
-                    <div class="stat fade-in">
-                        <div class="stat-number">5+</div>
-                        <div class="stat-text">Years Experience</div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="about-visual fade-in">
-                <i class="fas fa-lightbulb" style="font-size: 5rem; color: var(--primary);"></i>
-            </div>
-        </div>
-    </section>
-
     <!-- Services Section -->
     <section class="services" id="services">
-        <div class="section-title fade-in">
-            <h2>Our Complete Services</h2>
+        <div class="section-title">
+            <h2>Our Core Services</h2>
             <p>Comprehensive technology solutions tailored to your business needs</p>
         </div>
         
         <div class="services-grid">
             <!-- Service 1 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-globe"></i>
                 </div>
@@ -935,7 +853,7 @@
             </div>
             
             <!-- Service 2 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-mobile-alt"></i>
                 </div>
@@ -944,7 +862,7 @@
             </div>
             
             <!-- Service 3 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-brain"></i>
                 </div>
@@ -953,7 +871,7 @@
             </div>
             
             <!-- Service 4 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-desktop"></i>
                 </div>
@@ -962,7 +880,7 @@
             </div>
             
             <!-- Service 5 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-shield-alt"></i>
                 </div>
@@ -971,7 +889,7 @@
             </div>
             
             <!-- Service 6 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-chart-line"></i>
                 </div>
@@ -980,7 +898,7 @@
             </div>
             
             <!-- Service 7 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-cogs"></i>
                 </div>
@@ -989,7 +907,7 @@
             </div>
             
             <!-- Service 8 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-shopping-cart"></i>
                 </div>
@@ -998,7 +916,7 @@
             </div>
             
             <!-- Service 9 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-link"></i>
                 </div>
@@ -1007,7 +925,7 @@
             </div>
             
             <!-- Service 10 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-chart-bar"></i>
                 </div>
@@ -1016,7 +934,7 @@
             </div>
             
             <!-- Service 11 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-robot"></i>
                 </div>
@@ -1025,7 +943,7 @@
             </div>
             
             <!-- Service 12 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-gamepad"></i>
                 </div>
@@ -1034,7 +952,7 @@
             </div>
             
             <!-- Service 13 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-vr-cardboard"></i>
                 </div>
@@ -1043,7 +961,7 @@
             </div>
             
             <!-- Service 14 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-palette"></i>
                 </div>
@@ -1052,7 +970,7 @@
             </div>
             
             <!-- Service 15 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-bullseye"></i>
                 </div>
@@ -1061,7 +979,7 @@
             </div>
             
             <!-- Service 16 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-bolt"></i>
                 </div>
@@ -1070,7 +988,7 @@
             </div>
             
             <!-- Service 17 -->
-            <div class="service-card fade-in">
+            <div class="service-card">
                 <div class="service-icon">
                     <i class="fas fa-tools"></i>
                 </div>
@@ -1080,50 +998,50 @@
         </div>
     </section>
 
-    <!-- Clients Section -->
-    <section class="clients" id="clients">
-        <div class="section-title fade-in">
-            <h2>Trusted By Industry Leaders</h2>
-            <p>We partner with global companies to deliver exceptional results</p>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-title">
+            <h2>About Haivon Solutions</h2>
+            <p>Leading the digital transformation with innovative technology solutions</p>
         </div>
         
-        <div class="clients-grid">
-            <div class="client-logo">
-                <i class="fab fa-google"></i>
+        <div class="about-content">
+            <div class="about-text">
+                <h2>We Transform Ideas Into Digital Reality</h2>
+                <p>Haivon Solutions is a premier technology company specializing in cutting-edge digital solutions for businesses of all sizes. With a team of experienced developers, designers, and strategists, we deliver innovative products that drive growth and create competitive advantages.</p>
+                <p>Our approach combines technical expertise with business acumen to develop solutions that not only meet technical requirements but also align with your strategic objectives and deliver measurable ROI.</p>
+                
+                <div class="about-stats">
+                    <div class="stat">
+                        <div class="stat-number">150+</div>
+                        <div class="stat-text">Projects Completed</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-text">Happy Clients</div>
+                    </div>
+                    <div class="stat">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-text">Years Experience</div>
+                    </div>
+                </div>
             </div>
-            <div class="client-logo">
-                <i class="fab fa-microsoft"></i>
-            </div>
-            <div class="client-logo">
-                <i class="fab fa-apple"></i>
-            </div>
-            <div class="client-logo">
-                <i class="fab fa-amazon"></i>
-            </div>
-            <div class="client-logo">
-                <i class="fab fa-meta"></i>
-            </div>
-            <div class="client-logo">
-                <i class="fab fa-netflix"></i>
-            </div>
-            <div class="client-logo">
-                <i class="fab fa-spotify"></i>
-            </div>
-            <div class="client-logo">
-                <i class="fab fa-uber"></i>
+            
+            <div class="about-visual">
+                <i class="fas fa-lightbulb" style="font-size: 5rem; color: var(--primary);"></i>
             </div>
         </div>
     </section>
 
     <!-- Testimonials Section -->
     <section class="testimonials" id="testimonials">
-        <div class="section-title fade-in">
+        <div class="section-title">
             <h2>Client Testimonials</h2>
             <p>What our clients say about working with us</p>
         </div>
         
         <div class="testimonials-grid">
-            <div class="testimonial-card fade-in">
+            <div class="testimonial-card">
                 <div class="testimonial-text">
                     "Haivon Solutions transformed our business with their innovative web application. The team was professional, responsive, and delivered beyond our expectations."
                 </div>
@@ -1138,7 +1056,7 @@
                 </div>
             </div>
             
-            <div class="testimonial-card fade-in">
+            <div class="testimonial-card">
                 <div class="testimonial-text">
                     "The mobile app developed by Haivon Solutions has significantly improved our customer engagement. Their attention to detail and user experience design is exceptional."
                 </div>
@@ -1153,7 +1071,7 @@
                 </div>
             </div>
             
-            <div class="testimonial-card fade-in">
+            <div class="testimonial-card">
                 <div class="testimonial-text">
                     "Working with Haivon Solutions was a game-changer for our startup. They delivered a robust MVP that helped us secure funding and accelerate our growth."
                 </div>
@@ -1172,22 +1090,22 @@
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <h2 class="fade-in">Ready to Transform Your Business?</h2>
-        <p class="fade-in">Let's discuss how Haivon Solutions can help you achieve your technology goals and drive sustainable growth.</p>
-        <a href="#contact" class="btn btn-primary fade-in">
+        <h2>Ready to Transform Your Business?</h2>
+        <p>Let's discuss how Haivon Solutions can help you achieve your technology goals and drive sustainable growth.</p>
+        <a href="#contact" class="btn btn-primary">
             <i class="fas fa-calendar-check"></i> Schedule a Consultation
         </a>
     </section>
 
     <!-- Contact Section -->
     <section class="contact" id="contact">
-        <div class="section-title fade-in">
+        <div class="section-title">
             <h2>Contact Us</h2>
             <p>Get in touch to discuss your project requirements</p>
         </div>
         
         <div class="contact-content">
-            <div class="contact-info fade-in">
+            <div class="contact-info">
                 <h3>Let's Start a Conversation</h3>
                 <p>We're excited to learn about your project and explore how we can help bring your ideas to life. Contact us today for a free consultation.</p>
                 
@@ -1218,7 +1136,7 @@
                 </div>
             </div>
             
-            <div class="contact-form fade-in">
+            <div class="contact-form">
                 <form>
                     <div class="form-group">
                         <label for="name">Full Name</label>
@@ -1295,7 +1213,7 @@
         </div>
         
         <div class="copyright">
-            <p>&copy; 2023 Haivon Solutions. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a> | <a href="#">GDPR Compliance</a></p>
+            <p>&copy; 2023 Haivon Solutions. All rights reserved.</p>
         </div>
     </footer>
 
@@ -1327,26 +1245,6 @@
                 header.style.background = 'rgba(0, 0, 0, 0.9)';
             }
         });
-        
-        // Scroll Animation
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const fadeInOnScroll = () => {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const elementVisible = 150;
-                
-                if (elementTop < window.innerHeight - elementVisible) {
-                    element.classList.add('visible');
-                }
-            });
-        };
-        
-        // Initial check on page load
-        fadeInOnScroll();
-        
-        // Check on scroll
-        window.addEventListener('scroll', fadeInOnScroll);
     </script>
 </body>
 </html>
