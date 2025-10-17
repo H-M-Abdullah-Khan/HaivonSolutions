@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Haivon Solutions | Digital Innovation & Technology Services</title>
+    <title>Haivon Solutions - Launch Your Business</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="module" src="https://unpkg.com/@splinetool/viewer@1.10.82/build/spline-viewer.js"></script>
+    <link rel="shortcut icon" href="Haivon Technologies fvi.png" type="image/x-icon">
     <style>
         :root {
             --primary: #00fca8;
             --secondary: #1cdaff;
             --dark: #000000;
             --light: #ffffff;
-            --gray: #1a1a1a;
-            --medium-gray: #333333;
-            --light-gray: #f5f5f5;
+            --gray: #f5f5f5;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
         html {
             scroll-behavior: smooth;
         }
-        
+
         body {
             background-color: var(--dark);
             color: var(--light);
-            line-height: 1.6;
             overflow-x: hidden;
         }
-        
+
         /* Header & Navigation */
         header {
             position: fixed;
@@ -41,254 +41,236 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
-            padding: 1.2rem 5%;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 15px 0;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
         }
-        
+
         .logo {
-            font-size: 1.8rem;
+            font-size: 28px;
             font-weight: 700;
-            color: var(--light);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-        }
-        
-        .logo span {
             color: var(--primary);
+            text-decoration: none;
         }
-        
-        .logo i {
-            margin-right: 10px;
+
+        .logo span {
             color: var(--secondary);
         }
-        
-        nav ul {
+
+        .nav-links {
             display: flex;
             list-style: none;
         }
-        
-        nav ul li {
-            margin-left: 2rem;
+
+        .nav-links li {
+            margin-left: 30px;
         }
-        
-        nav ul li a {
+
+        .nav-links a {
             color: var(--light);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s ease;
             position: relative;
-            font-size: 0.95rem;
         }
-        
-        nav ul li a:hover {
+
+        .nav-links a:hover {
             color: var(--primary);
         }
-        
-        nav ul li a::after {
+
+        .nav-links a::after {
             content: '';
             position: absolute;
             bottom: -5px;
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--secondary);
+            background-color: var(--primary);
             transition: width 0.3s ease;
         }
-        
-        nav ul li a:hover::after {
+
+        .nav-links a:hover::after {
             width: 100%;
         }
-        
-        .cta-button {
-            background: linear-gradient(45deg, var(--primary), var(--secondary));
-            color: var(--dark);
-            padding: 0.8rem 1.8rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.95rem;
-        }
-        
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 252, 168, 0.3);
-        }
-        
-        .menu-toggle {
+
+        .mobile-menu {
             display: none;
-            font-size: 1.5rem;
+            font-size: 24px;
             cursor: pointer;
         }
-        
+
         /* Hero Section */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 0 5%;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, rgba(0, 252, 168, 0.03) 0%, rgba(28, 218, 255, 0.03) 100%);
         }
-        
+
+        .hero-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+
         .hero-content {
-            max-width: 650px;
-            z-index: 2;
+            max-width: 550px;
+            z-index: 1;
+            flex: 1;
         }
-        
+
+        .hero-visual {
+            flex: 1.2;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            position: relative;
+        }
+
+        .spline-container {
+            width: 100%;
+            height: 650px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        spline-viewer {
+            width: 120%;
+            height: 120%;
+        }
+
+        /* Hide the "Built with Spline" badge */
+        spline-viewer::part(logo) {
+            display: none !important;
+        }
+
         .hero h1 {
-            font-size: 3.2rem;
-            margin-bottom: 1.5rem;
+            font-size: 4rem;
+            margin-bottom: 20px;
             line-height: 1.2;
-            font-weight: 700;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: fadeInUp 1s ease;
         }
-        
-        .hero h1 span {
-            color: var(--primary);
-        }
-        
+
         .hero p {
             font-size: 1.2rem;
-            margin-bottom: 2.5rem;
-            color: #cccccc;
-            line-height: 1.6;
-            max-width: 90%;
+            margin-bottom: 30px;
+            color: #ccc;
+            animation: fadeInUp 1s ease 0.2s both;
         }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .btn {
-            padding: 1rem 2.2rem;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 1rem;
-        }
-        
-        .btn-primary {
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
             background: linear-gradient(45deg, var(--primary), var(--secondary));
             color: var(--dark);
-            box-shadow: 0 4px 15px rgba(0, 252, 168, 0.2);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.4s both;
+            box-shadow: 0 10px 20px rgba(0, 252, 168, 0.3);
         }
-        
-        .btn-secondary {
-            border: 2px solid var(--secondary);
-            color: var(--secondary);
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 252, 168, 0.5);
         }
-        
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-        
-        .btn-primary:hover {
-            box-shadow: 0 6px 20px rgba(0, 252, 168, 0.3);
-        }
-        
-        .btn-secondary:hover {
-            background: rgba(28, 218, 255, 0.1);
-        }
-        
-        .hero-visual {
-            position: absolute;
-            right: 5%;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 500px;
-            height: 500px;
-            z-index: 1;
-        }
-        
-        .floating-shapes {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.7;
-            filter: blur(40px);
-        }
-        
-        .shape-1 {
-            width: 300px;
-            height: 300px;
-            background: var(--primary);
-            top: 10%;
-            right: 10%;
-            animation: float 8s ease-in-out infinite;
-        }
-        
-        .shape-2 {
-            width: 200px;
-            height: 200px;
-            background: var(--secondary);
-            bottom: 10%;
-            right: 30%;
-            animation: float 6s ease-in-out infinite reverse;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-        
+
         /* Services Section */
-        .services {
-            padding: 8rem 5%;
-            background: var(--gray);
+        .section {
+            padding: 100px 0;
         }
-        
+
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 60px;
         }
-        
+
         .section-title h2 {
             font-size: 2.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
         }
-        
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
         .section-title p {
-            color: #cccccc;
+            color: #aaa;
             max-width: 600px;
             margin: 0 auto;
-            font-size: 1.1rem;
         }
-        
+
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            gap: 30px;
         }
-        
+
+        .service-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            border-color: rgba(255, 255, 255, 0.3);
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        .service-icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
         .service-card {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            padding: 2rem;
             transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
             z-index: 1;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-color: #00000000;
         }
-        
+
         .service-card::before {
             content: '';
             position: absolute;
@@ -300,951 +282,715 @@
             opacity: 0;
             transition: opacity 0.3s ease;
             z-index: -1;
+            border-color: #00000000;
         }
-        
+
         .service-card:hover::before {
             opacity: 0.1;
         }
-        
+
         .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-color: #00000000;
         }
-        
-        .service-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-        
+
         .service-card h3 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--light);
         }
-        
+
         .service-card p {
-            color: #cccccc;
+            color: #aaa;
             line-height: 1.6;
         }
-        
-        /* About Section */
-        .about {
-            padding: 8rem 5%;
-            background: var(--dark);
+
+        /* Clients Section */
+        .clients {
+            background-color: rgba(255, 255, 255, 0.03);
+            padding: 80px 0;
         }
-        
-        .about-content {
+
+        .clients-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-        
-        .about-text p {
-            color: #cccccc;
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-        
-        .about-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .stat {
-            text-align: center;
-        }
-        
-        .stat-number {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .stat-text {
-            color: #cccccc;
-            font-size: 0.9rem;
-        }
-        
-        .about-visual {
-            position: relative;
-            height: 400px;
-            background: var(--medium-gray);
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 20px;
             align-items: center;
             justify-content: center;
         }
-        
-        .about-visual::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, rgba(0, 252, 168, 0.1), rgba(28, 218, 255, 0.1));
-        }
-        
-        /* Portfolio Section */
-        .portfolio {
-            padding: 8rem 5%;
-            background: var(--gray);
-        }
-        
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-        
-        .portfolio-item {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            overflow: hidden;
+
+        .client-logo {
+            filter: grayscale(100%);
+            opacity: 0.7;
             transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-        
-        .portfolio-img {
-            height: 200px;
-            background: var(--medium-gray);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-            font-size: 3rem;
-        }
-        
-        .portfolio-content {
-            padding: 1.5rem;
-        }
-        
-        .portfolio-content h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .portfolio-content p {
-            color: #cccccc;
-            font-size: 0.95rem;
-        }
-        
-        /* Testimonials Section */
-        .testimonials {
-            padding: 8rem 5%;
-            background: var(--dark);
-        }
-        
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 8px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-        }
-        
-        .testimonial-text {
-            color: #cccccc;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-        }
-        
-        .author-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--medium-gray);
-            margin-right: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary);
-        }
-        
-        .author-info h4 {
-            font-size: 1.1rem;
-            margin-bottom: 0.2rem;
-        }
-        
-        .author-info p {
-            color: #cccccc;
-            font-size: 0.9rem;
-        }
-        
-        /* CTA Section */
-        .cta-section {
-            padding: 6rem 5%;
             text-align: center;
-            background: linear-gradient(135deg, rgba(0, 252, 168, 0.05) 0%, rgba(28, 218, 255, 0.05) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
             font-weight: 700;
+            color: #777;
         }
-        
-        .cta-section p {
-            max-width: 600px;
-            margin: 0 auto 2.5rem;
-            color: #cccccc;
-            font-size: 1.1rem;
+
+        .client-logo:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+            color: var(--primary);
         }
-        
+
         /* Contact Section */
         .contact {
-            padding: 8rem 5%;
-            background: var(--gray);
+            background: black;
         }
-        
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
+
+        .contact-info {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 50px;
         }
-        
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .contact-info p {
-            color: #cccccc;
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
-        
-        .contact-details {
-            margin-bottom: 2rem;
-        }
-        
-        .contact-detail {
+
+        .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 30px;
+            width: 100%;
+            max-width: 350px;
         }
-        
-        .contact-detail i {
-            width: 40px;
-            height: 40px;
-            background: rgba(0, 252, 168, 0.1);
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1rem;
-            color: var(--primary);
+            margin-right: 20px;
+            font-size: 24px;
+            color: var(--dark);
         }
-        
-        .contact-form {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 2.5rem;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+
+        .contact-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
         }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
+
+        .contact-details p {
+            color: #aaa;
         }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            color: #cccccc;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.8rem 1rem;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 4px;
-            color: var(--light);
-            font-size: 1rem;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-        }
-        
+
         /* Footer */
         footer {
-            background: var(--dark);
-            color: var(--light);
-            padding: 4rem 5% 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 50px 0 20px;
+            text-align: center;
         }
-        
+
         .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            margin-bottom: 3rem;
+            margin-bottom: 30px;
         }
-        
-        .footer-column h3 {
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column ul li {
-            margin-bottom: 0.8rem;
-        }
-        
-        .footer-column ul li a {
-            color: #cccccc;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-        
-        .footer-column ul li a:hover {
-            color: var(--secondary);
-        }
-        
+
         .social-links {
             display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-        
-        .social-links a {
-            display: flex;
-            align-items: center;
             justify-content: center;
+            margin: 20px 0;
+        }
+
+        .social-links a {
             width: 40px;
             height: 40px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
             color: var(--light);
+            text-decoration: none;
             transition: all 0.3s ease;
         }
-        
+
         .social-links a:hover {
-            background: var(--primary);
-            color: var(--dark);
-            transform: translateY(-3px);
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            transform: translateY(-5px);
         }
-        
+
         .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #888888;
+            color: #777;
             font-size: 0.9rem;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
         }
-        
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* Responsive Design */
-        @media (max-width: 992px) {
+        @media (max-width: 1200px) {
             .hero h1 {
-                font-size: 2.8rem;
+                font-size: 3.5rem;
             }
-            
-            .hero-visual {
-                width: 400px;
-                height: 400px;
-            }
-            
-            .about-content {
-                grid-template-columns: 1fr;
-            }
-            
-            .contact-content {
-                grid-template-columns: 1fr;
+
+            .spline-container {
+                height: 600px;
             }
         }
-        
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
+
+        @media (max-width: 992px) {
+            .hero-container {
+                flex-direction: column;
+                text-align: center;
             }
-            
-            nav {
+
+            .hero-content {
+                max-width: 100%;
+                margin-bottom: 50px;
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+
+            .spline-container {
+                height: 500px;
+                max-width: 700px;
+                margin: 0 auto;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
                 position: fixed;
                 top: 70px;
                 left: -100%;
-                width: 80%;
+                width: 100%;
                 height: calc(100vh - 70px);
-                background: rgba(0, 0, 0, 0.95);
+                background-color: rgba(0, 0, 0, 0.95);
                 flex-direction: column;
+                align-items: center;
+                justify-content: flex-start;
+                padding-top: 50px;
                 transition: left 0.3s ease;
-                padding: 2rem;
-                box-shadow: 5px 0 15px rgba(0, 0, 0, 0.3);
             }
-            
-            nav.active {
+
+            .nav-links.active {
                 left: 0;
             }
-            
-            nav ul {
+
+            .nav-links li {
+                margin: 15px 0;
+            }
+
+            .mobile-menu {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .spline-container {
+                height: 400px;
+            }
+
+            .contact-info {
                 flex-direction: column;
-            }
-            
-            nav ul li {
-                margin: 1rem 0;
-            }
-            
-            .hero {
-                flex-direction: column;
-                text-align: center;
-                padding-top: 100px;
-            }
-            
-            .hero-content {
-                max-width: 100%;
-            }
-            
-            .hero-buttons {
-                justify-content: center;
-            }
-            
-            .hero-visual {
-                position: relative;
-                right: auto;
-                top: auto;
-                transform: none;
-                margin-top: 3rem;
-                width: 100%;
-                max-width: 400px;
-            }
-            
-            .about-stats {
-                grid-template-columns: 1fr;
+                align-items: center;
             }
         }
-        
+
         @media (max-width: 576px) {
             .hero h1 {
-                font-size: 2.2rem;
+                font-size: 2rem;
             }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .btn {
-                padding: 0.8rem 1.5rem;
-            }
-            
+
             .section-title h2 {
                 font-size: 2rem;
             }
-            
+
             .services-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .portfolio-grid {
-                grid-template-columns: 1fr;
+
+            .spline-container {
+                height: 350px;
             }
-            
-            .testimonials-grid {
-                grid-template-columns: 1fr;
+        }
+
+        @media (max-width: 480px) {
+            .spline-container {
+                height: 300px;
+            }
+        }
+
+        /* Horizontal Clients Section */
+        .horizontal-clients {
+            padding: 3rem 0;
+            background: rgba(0, 0, 0, 0.5);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .clients-container {
+            display: flex;
+            animation: scrollClients 30s linear infinite;
+            gap: 4rem;
+            padding: 0 2rem;
+        }
+
+        .client-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            filter: grayscale(100%) brightness(70%);
+            transition: all 0.3s ease;
+            width: 150px;
+        }
+
+        .client-item:hover {
+            filter: none;
+            transform: scale(1.1);
+        }
+
+        .client-item i {
+            font-size: 2.5rem;
+            color: #888;
+            transition: all 0.3s ease;
+        }
+
+        .client-item:hover i {
+            color: var(--primary);
+            text-shadow: 0 0 10px rgba(0, 252, 168, 0.5);
+        }
+
+        @keyframes scrollClients {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(calc(-150px * 8 - 4rem * 8));
             }
         }
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header>
-        <a href="#" class="logo">
-            <i class="fas fa-cube"></i>Haivon<span>Solutions</span>
-        </a>
-        
-        <div class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo"><img src="Haivon Solutions.png" alt="" style="width: 150px;"></a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#clients">Clients</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
-        
-        <nav id="mainNav">
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#testimonials">Testimonials</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        
-        <a href="#contact" class="cta-button">Get Started</a>
     </header>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Digital Innovation <span>Transforming</span> Businesses</h1>
-            <p>Haivon Solutions delivers cutting-edge technology services that drive growth, enhance efficiency, and create exceptional digital experiences for businesses worldwide.</p>
-            <div class="hero-buttons">
-                <a href="#services" class="btn btn-primary">
-                    <i class="fas fa-rocket"></i> Our Services
-                </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-paper-plane"></i> Contact Us
-                </a>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <h1>Ready To Launch Your Business Just On One Click</h1>
+                <p>Transform your ideas into powerful digital solutions with our cutting-edge technology services. From
+                    web development to AI solutions, we've got you covered.</p>
+                <a href="#contact" class="cta-button">Get Started Today</a>
             </div>
-        </div>
-        
-        <div class="hero-visual">
-            <div class="floating-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
+            <div class="hero-visual">
+                <div class="spline-container">
+                    <spline-viewer url="https://prod.spline.design/EK7OWy25NOHoCHRD/scene.splinecode"></spline-viewer>
+                </div>
             </div>
         </div>
     </section>
+    <section class="horizontal-clients">
+        <div class="clients-container">
+            <div class="client-item">
+                <i class="fab fa-google"></i>
+            </div>
+            <div class="client-item">
+                <i class="fab fa-microsoft"></i>
+            </div>
+            <div class="client-item">
+                <i class="fab fa-apple"></i>
+            </div>
+            <div class="client-item">
+                <i class="fab fa-amazon"></i>
+            </div>
+            <div class="client-item">
+                <i class="fab fa-meta"></i>
+            </div>
+            <div class="client-item">
+                <i class="fa-brands fa-ember"></i>
+            </div>
+            <div class="client-item">
+                <i class="fab fa-spotify"></i>
+            </div>
+            <div class="client-item">
+                <i class="fab fa-uber"></i>
+            </div>
+            <!-- Duplicate for seamless loop -->
+            <div class="client-item">
+                <i class="fab fa-google"></i>
+            </div>
+            <div class="client-item">
+                <i class="fab fa-microsoft"></i>
+            </div>
+            <div class="client-item">
+                <i class="fab fa-apple"></i>
+            </div>
+            <div class="client-item">
+                <i class="fab fa-amazon"></i>
+            </div>
+            <div class="client-item">
+                <i class="fab fa-meta"></i>
+            </div>
+            <div class="client-item">
+                <i class="fa-brands fa-ember"></i>
+            </div>
+            <div class="client-item">
+                <i class="fab fa-spotify"></i>
+            </div>
+            <div class="client-item">
+                <i class="fab fa-uber"></i>
+            </div>
+        </div>
+    </section>
+
 
     <!-- Services Section -->
-    <section class="services" id="services">
-        <div class="section-title">
-            <h2>Our Core Services</h2>
-            <p>Comprehensive technology solutions tailored to your business needs</p>
-        </div>
-        
-        <div class="services-grid">
-            <!-- Service 1 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-globe"></i>
-                </div>
-                <h3>Website & Web App Development</h3>
-                <p>Responsive, high-performance websites and web applications that deliver exceptional user experiences across all devices.</p>
+    <section class="section" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Core Services</h2>
+                <p>Comprehensive digital solutions to power your business growth and innovation</p>
             </div>
-            
-            <!-- Service 2 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-mobile-alt"></i>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Website & Web App Development</h3>
+                    <p>Custom websites and web applications built with the latest technologies for optimal performance
+                        and user experience.</p>
                 </div>
-                <h3>Mobile App Development</h3>
-                <p>Native and cross-platform mobile applications for iOS and Android using Flutter, React Native, and native technologies.</p>
-            </div>
-            
-            <!-- Service 3 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-brain"></i>
-                </div>
-                <h3>AI & Machine Learning</h3>
-                <p>Intelligent solutions that leverage artificial intelligence to automate processes, gain insights, and enhance decision-making.</p>
-            </div>
-            
-            <!-- Service 4 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-desktop"></i>
-                </div>
-                <h3>Desktop Application Development</h3>
-                <p>Robust desktop applications for Windows, macOS, and Linux platforms with modern UI/UX design.</p>
-            </div>
-            
-            <!-- Service 5 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Cybersecurity & Ethical Hacking</h3>
-                <p>Protect your digital assets with comprehensive security assessments, penetration testing, and security solutions.</p>
-            </div>
-            
-            <!-- Service 6 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3>Custom Business Software & SaaS</h3>
-                <p>Tailored software solutions and SaaS platforms designed to streamline your operations and drive growth.</p>
-            </div>
-            
-            <!-- Service 7 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-cogs"></i>
-                </div>
-                <h3>ERP & CRM System Development</h3>
-                <p>Integrated enterprise resource planning and customer relationship management systems to optimize business processes.</p>
-            </div>
-            
-            <!-- Service 8 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-shopping-cart"></i>
-                </div>
-                <h3>E-commerce Store Development</h3>
-                <p>Feature-rich online stores with secure payment gateways, inventory management, and seamless user experiences.</p>
-            </div>
-            
-            <!-- Service 9 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-link"></i>
-                </div>
-                <h3>Blockchain & Web3 Solutions</h3>
-                <p>Decentralized applications, smart contracts, and blockchain integration services for the future of digital transactions.</p>
-            </div>
-            
-            <!-- Service 10 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-chart-bar"></i>
-                </div>
-                <h3>Data Science & Predictive Analytics</h3>
-                <p>Transform your data into actionable insights with advanced analytics, machine learning, and data visualization.</p>
-            </div>
-            
-            <!-- Service 11 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-robot"></i>
-                </div>
-                <h3>AI Chatbots & Virtual Assistants</h3>
-                <p>Intelligent conversational agents that enhance customer service, automate interactions, and improve user engagement.</p>
-            </div>
-            
-            <!-- Service 12 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-gamepad"></i>
-                </div>
-                <h3>Game Development</h3>
-                <p>Immersive 2D and 3D games developed with Unity and other leading game engines for various platforms.</p>
-            </div>
-            
-            <!-- Service 13 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-vr-cardboard"></i>
-                </div>
-                <h3>AR/VR Development</h3>
-                <p>Cutting-edge augmented and virtual reality experiences for training, marketing, and entertainment applications.</p>
-            </div>
-            
-            <!-- Service 14 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-palette"></i>
-                </div>
-                <h3>UI/UX Design & Branding</h3>
-                <p>User-centered design solutions that create engaging, intuitive, and visually appealing digital experiences.</p>
-            </div>
-            
-            <!-- Service 15 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-bullseye"></i>
-                </div>
-                <h3>Digital Marketing & SEO</h3>
-                <p>Data-driven marketing strategies to increase visibility, drive traffic, and boost conversions across digital channels.</p>
-            </div>
-            
-            <!-- Service 16 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-bolt"></i>
-                </div>
-                <h3>Startup MVPs & Rapid Prototyping</h3>
-                <p>Quickly validate your business idea with a minimum viable product and iterative development approach.</p>
-            </div>
-            
-            <!-- Service 17 -->
-            <div class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-tools"></i>
-                </div>
-                <h3>Maintenance & Support</h3>
-                <p>Ongoing maintenance, updates, and cloud deployment services to keep your applications running smoothly.</p>
-            </div>
-        </div>
-    </section>
 
-    <!-- About Section -->
-    <section class="about" id="about">
-        <div class="section-title">
-            <h2>About Haivon Solutions</h2>
-            <p>Leading the digital transformation with innovative technology solutions</p>
-        </div>
-        
-        <div class="about-content">
-            <div class="about-text">
-                <h2>We Transform Ideas Into Digital Reality</h2>
-                <p>Haivon Solutions is a premier technology company specializing in cutting-edge digital solutions for businesses of all sizes. With a team of experienced developers, designers, and strategists, we deliver innovative products that drive growth and create competitive advantages.</p>
-                <p>Our approach combines technical expertise with business acumen to develop solutions that not only meet technical requirements but also align with your strategic objectives and deliver measurable ROI.</p>
-                
-                <div class="about-stats">
-                    <div class="stat">
-                        <div class="stat-number">150+</div>
-                        <div class="stat-text">Projects Completed</div>
+                <!-- Service 2 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <div class="stat">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-text">Happy Clients</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">5+</div>
-                        <div class="stat-text">Years Experience</div>
-                    </div>
+                    <h3>Mobile App Development</h3>
+                    <p>iOS, Android, and cross-platform mobile applications that deliver exceptional user experiences.
+                    </p>
                 </div>
-            </div>
-            
-            <div class="about-visual">
-                <i class="fas fa-lightbulb" style="font-size: 5rem; color: var(--primary);"></i>
-            </div>
-        </div>
-    </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials" id="testimonials">
-        <div class="section-title">
-            <h2>Client Testimonials</h2>
-            <p>What our clients say about working with us</p>
-        </div>
-        
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="testimonial-text">
-                    "Haivon Solutions transformed our business with their innovative web application. The team was professional, responsive, and delivered beyond our expectations."
+                <!-- Service 3 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI & Machine Learning Solutions</h3>
+                    <p>Intelligent systems that learn, adapt, and automate to give your business a competitive edge.</p>
                 </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">
-                        <i class="fas fa-user"></i>
+
+                <!-- Service 4 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-desktop"></i>
                     </div>
-                    <div class="author-info">
-                        <h4>Sarah Johnson</h4>
-                        <p>CEO, TechInnovate</p>
-                    </div>
+                    <h3>Desktop Application Development</h3>
+                    <p>Powerful desktop applications for Windows, macOS, and Linux platforms.</p>
                 </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <div class="testimonial-text">
-                    "The mobile app developed by Haivon Solutions has significantly improved our customer engagement. Their attention to detail and user experience design is exceptional."
+
+                <!-- Service 5 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Cybersecurity & Ethical Hacking</h3>
+                    <p>Protect your digital assets with comprehensive security solutions and vulnerability assessments.
+                    </p>
                 </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">
-                        <i class="fas fa-user"></i>
+
+                <!-- Service 6 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <div class="author-info">
-                        <h4>Michael Chen</h4>
-                        <p>Product Manager, RetailPlus</p>
-                    </div>
+                    <h3>Custom Business Software & SaaS</h3>
+                    <p>Tailored software solutions and SaaS platforms designed to streamline your business operations.
+                    </p>
                 </div>
-            </div>
-            
-            <div class="testimonial-card">
-                <div class="testimonial-text">
-                    "Working with Haivon Solutions was a game-changer for our startup. They delivered a robust MVP that helped us secure funding and accelerate our growth."
+
+                <!-- Service 7 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>ERP & CRM System Development</h3>
+                    <p>Integrated enterprise resource planning and customer relationship management systems.</p>
                 </div>
-                <div class="testimonial-author">
-                    <div class="author-avatar">
-                        <i class="fas fa-user"></i>
+
+                <!-- Service 8 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
                     </div>
-                    <div class="author-info">
-                        <h4>Emily Rodriguez</h4>
-                        <p>Founder, GreenTech Solutions</p>
+                    <h3>E-commerce Store Development</h3>
+                    <p>Feature-rich online stores with secure payment gateways and inventory management.</p>
+                </div>
+
+                <!-- Service 9 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-link"></i>
                     </div>
+                    <h3>Blockchain, Web3 & Smart Contracts</h3>
+                    <p>Decentralized applications and blockchain solutions for the next generation of the web.</p>
+                </div>
+
+                <!-- Service 10 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Data Science & Predictive Analytics</h3>
+                    <p>Extract valuable insights from your data to drive informed business decisions.</p>
+                </div>
+
+                <!-- Service 11 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>AI Chatbots & Virtual Assistants</h3>
+                    <p>Intelligent conversational agents that enhance customer service and engagement.</p>
+                </div>
+
+                <!-- Service 12 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3>Game Development</h3>
+                    <p>Immersive 2D and 3D gaming experiences built with Unity and other leading engines.</p>
+                </div>
+
+                <!-- Service 13 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>UI/UX Design & Branding</h3>
+                    <p>Visually stunning interfaces and compelling brand identities that resonate with users.</p>
+                </div>
+
+                <!-- Service 15 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-bullseye"></i>
+                    </div>
+                    <h3>Digital Marketing & SEO</h3>
+                    <p>Data-driven marketing strategies to increase visibility and drive growth.</p>
+                </div>
+
+                <!-- Service 17 -->
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Maintenance & Cloud Deployment</h3>
+                    <p>Ongoing support, maintenance, and cloud infrastructure management.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
-        <h2>Ready to Transform Your Business?</h2>
-        <p>Let's discuss how Haivon Solutions can help you achieve your technology goals and drive sustainable growth.</p>
-        <a href="#contact" class="btn btn-primary">
-            <i class="fas fa-calendar-check"></i> Schedule a Consultation
-        </a>
+    <!-- Clients Section -->
+    <section class="clients" id="clients">
+        <div class="container">
+            <div class="section-title">
+                <h2>Trusted By Industry Leaders</h2>
+                <p>We've partnered with some of the world's most innovative companies</p>
+            </div>
+            <div class="clients-grid">
+                <div class="client-item">
+                    <i class="fab fa-google"></i>
+                </div>
+                <div class="client-item">
+                    <i class="fab fa-microsoft"></i>
+                </div>
+                <div class="client-item">
+                    <i class="fab fa-apple"></i>
+                </div>
+                <div class="client-item">
+                    <i class="fab fa-amazon"></i>
+                </div>
+                <div class="client-item">
+                    <i class="fab fa-meta"></i>
+                </div>
+                <div class="client-item">
+                    <i class="fa-brands fa-ember"></i>
+                </div>
+                <div class="client-item">
+                    <i class="fab fa-spotify"></i>
+                </div>
+                <div class="client-item">
+                    <i class="fab fa-uber"></i>
+                </div>
+                <div class="client-item">
+                    <i class="fa-brands fa-openai"></i>
+                </div>
+            </div>
+        </div>
     </section>
-
     <!-- Contact Section -->
-    <section class="contact" id="contact">
-        <div class="section-title">
-            <h2>Contact Us</h2>
-            <p>Get in touch to discuss your project requirements</p>
-        </div>
-        
-        <div class="contact-content">
+    <section class="section contact" id="contact" style="background-color: #000000;">
+        <div class="container" style="background-color: #000000;">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+                <p>Ready to transform your business? Contact us today for a free consultation</p>
+            </div>
             <div class="contact-info">
-                <h3>Let's Start a Conversation</h3>
-                <p>We're excited to learn about your project and explore how we can help bring your ideas to life. Contact us today for a free consultation.</p>
-                
-                <div class="contact-details">
-                    <div class="contact-detail">
+                <div class="contact-item">
+                    <div class="contact-icon">
                         <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <h4>Our Location</h4>
-                            <p>123 Tech Street, Innovation City</p>
-                        </div>
                     </div>
-                    
-                    <div class="contact-detail">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone Number</h4>
-                            <p>+1 (555) 123-4567</p>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-detail">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <h4>Email Address</h4>
-                            <p>info@haivonsolutions.com</p>
-                        </div>
+                    <div class="contact-details">
+                        <h3>Location</h3>
+                        <p>China</p>
                     </div>
                 </div>
-            </div>
-            
-            <div class="contact-form">
-                <form>
-                    <div class="form-group">
-                        <label for="name">Full Name</label>
-                        <input type="text" id="name" placeholder="Your Name">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone-alt"></i>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="email">Email Address</label>
-                        <input type="email" id="email" placeholder="Your Email">
+                    <div class="contact-details">
+                        <h3>Phone</h3>
+                        <p>+92 315 3978565</p>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" placeholder="Subject">
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" rows="5" placeholder="Your Message"></textarea>
+                    <div class="contact-details">
+                        <h3>Email</h3>
+                        <p>info@haivonsolutions.com</p>
                     </div>
-                    
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">
-                        <i class="fas fa-paper-plane"></i> Send Message
-                    </button>
-                </form>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Haivon Solutions</h3>
-                <p>Delivering cutting-edge technology solutions to transform businesses and drive innovation in the digital age.</p>
+        <div class="container">
+            <div class="footer-content">
+                <a href="#" class="logo"><img src="Haivon Solutions.png" alt="" style="width: 150px;"></a>
+                <p>Transforming ideas into digital reality</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-dribbble"></i></a>
+                    <a href="#"><i class="fab fa-x"></i></a>
+                    <a href="https://www.linkedin.com/in/h-m-abdullah-khan/"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/haivon_solutions/"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
-            
-            <div class="footer-column">
-                <h3>Services</h3>
-                <ul>
-                    <li><a href="#">Web Development</a></li>
-                    <li><a href="#">Mobile Apps</a></li>
-                    <li><a href="#">AI & ML Solutions</a></li>
-                    <li><a href="#">Cybersecurity</a></li>
-                    <li><a href="#">Blockchain</a></li>
-                </ul>
+            <div class="copyright">
+                <p>&copy; 2025 Haivon Solutions. All Rights Reserved.</p>
             </div>
-            
-            <div class="footer-column">
-                <h3>Company</h3>
-                <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Our Team</a></li>
-                    <li><a href="#">Careers</a></li>
-                    <li><a href="#">Blog</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="footer-column">
-                <h3>Contact Info</h3>
-                <ul>
-                    <li><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Innovation City</li>
-                    <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-                    <li><i class="fas fa-envelope"></i> info@haivonsolutions.com</li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="copyright">
-            <p>&copy; 2023 Haivon Solutions. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
         // Mobile Menu Toggle
-        const menuToggle = document.getElementById('menuToggle');
-        const mainNav = document.getElementById('mainNav');
-        
-        menuToggle.addEventListener('click', () => {
-            mainNav.classList.toggle('active');
+        document.querySelector('.mobile-menu').addEventListener('click', function () {
+            document.querySelector('.nav-links').classList.toggle('active');
         });
-        
-        // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('nav ul li a');
-        navLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mainNav.classList.remove('active');
+
+        // Scroll Animation
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const fadeInOnScroll = function () {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('visible');
+                }
             });
-        });
-        
-        // Header scroll effect
-        window.addEventListener('scroll', () => {
+        };
+
+        // Check on load
+        window.addEventListener('load', fadeInOnScroll);
+
+        // Check on scroll
+        window.addEventListener('scroll', fadeInOnScroll);
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function () {
             const header = document.querySelector('header');
             if (window.scrollY > 100) {
-                header.style.padding = '0.8rem 5%';
-                header.style.background = 'rgba(0, 0, 0, 0.95)';
+                header.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
+                header.style.padding = '10px 0';
             } else {
-                header.style.padding = '1.2rem 5%';
-                header.style.background = 'rgba(0, 0, 0, 0.9)';
+                header.style.backgroundColor = 'rgba(0, 0, 0, 0.9)';
+                header.style.padding = '15px 0';
             }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function () {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+
+        // Hide Spline logo after load
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                const splineLogo = document.querySelector('spline-viewer').shadowRoot.querySelector('.logo');
+                if (splineLogo) {
+                    splineLogo.style.display = 'none';
+                }
+            }, 1000);
         });
     </script>
 </body>
+
 </html>
