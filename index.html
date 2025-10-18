@@ -120,7 +120,6 @@
             position: relative;
             overflow: hidden;
             padding-top: 80px;
-            /* Added padding to prevent navbar overlap */
         }
 
         .hero-container {
@@ -583,8 +582,6 @@
                 justify-content: flex-start;
                 padding-top: 50px;
                 transition: left 0.3s ease;
-                z-index: 1001;
-                /* Increased z-index for mobile menu */
             }
 
             .nav-links.active {
@@ -597,13 +594,6 @@
 
             .mobile-menu {
                 display: block;
-                z-index: 1002;
-                /* Higher z-index for menu button */
-            }
-
-            .hero {
-                padding-top: 70px;
-                /* Adjusted for mobile navbar height */
             }
 
             .hero h1 {
@@ -898,10 +888,6 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 40px;
             }
-
-            .section-title {
-                font-size: 3rem;
-            }
         }
 
         @media (max-width: 768px) {
@@ -928,10 +914,6 @@
                 gap: 30px;
             }
 
-            .section-title {
-                font-size: 2.5rem;
-            }
-
             .cta-title {
                 font-size: 2rem;
             }
@@ -940,14 +922,6 @@
         @media (max-width: 480px) {
             .global-section {
                 padding: 60px 0;
-            }
-
-            .section-header {
-                margin-bottom: 50px;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
             }
 
             .global-card {
@@ -991,7 +965,6 @@
                 <ul class="nav-links">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
-                    <li><a href="#global">Global Presence</a></li>
                     <li><a href="#clients">Clients</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -1013,12 +986,11 @@
             </div>
             <div class="hero-visual">
                 <div class="spline-container">
-                    <spline-viewer url="https://prod.spline.design/EK7OWy25NOHoCHRD/scene.splinecode"></spline-viewer>
+                    <!-- <spline-viewer url="https://prod.spline.design/EK7OWy25NOHoCHRD/scene.splinecode"></spline-viewer> -->
                 </div>
             </div>
         </div>
     </section>
-    <!-- partnered -->
     <section class="clients" id="clients">
         <div class="container">
             <div class="section-title">
@@ -1231,15 +1203,17 @@
         </div>
     </section>
     <!-- Global Reach Section -->
-    <section class="section" id="global">
+    <section class="section global-section" id="global">
         <div class="container">
-            <!-- Fixed Global Presence Heading - Now matches Services section -->
             <div class="section-title">
-                <h2>Global Presence</h2>
-                <p>Connecting businesses worldwide with innovative technology solutions that transcend geographical
-                    boundaries and time zones.</p>
+                <h2>
+                    Global Presence
+                </h2>
+                <p>
+                    Connecting businesses worldwide with innovative technology solutions that transcend geographical
+                    boundaries and time zones.
+                </p>
             </div>
-
             <!-- Main Cards Grid -->
             <div class="global-grid">
                 <div class="global-card">
@@ -1402,7 +1376,7 @@
                 <p>Transforming ideas into digital reality</p>
                 <div class="social-links">
                     <a href="http://wa.me/923153978565"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://x.com/haivonsolutions/"><i class="fab fa-x"></i></a>
+                    <a href="https://x.com/haivonsolution/"><i class="fab fa-x"></i></a>
                     <a href="https://www.linkedin.com/in/h-m-abdullah-khan/"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://www.instagram.com/haivon_solutions/"><i class="fab fa-instagram"></i></a>
                 </div>
