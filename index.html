@@ -218,6 +218,274 @@
             color: white;
         }
 
+        /* Freelancer Icon Styling */
+        .freelancer-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 10px;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .freelancer-link:hover {
+            background: linear-gradient(45deg, #29b2fe, #29b2fe);
+            transform: translateY(-5px);
+        }
+
+        .freelancer-link svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Preloader Styles */
+        .preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #000000, #0a0a0a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .preloader.fade-out {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .preloader-content {
+            text-align: center;
+            transform: translateY(-30px);
+        }
+
+        .gif-container {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .loading-gif {
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: 20px;
+            animation: gifPulse 2s ease-in-out infinite;
+        }
+
+        .loading-bar {
+            width: 300px;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0 auto 25px;
+            position: relative;
+        }
+
+        .loading-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            animation: shimmer 2s infinite;
+        }
+
+        .loader-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin: 20px 0;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary);
+            animation: dotPulse 1.4s ease-in-out infinite both;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: 0.2s;
+            background: var(--secondary);
+        }
+
+        .dot:nth-child(3) {
+            animation-delay: 0.4s;
+            background: var(--primary);
+        }
+
+        .loading-text {
+            color: #aaa;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            animation: textGlow 2s ease-in-out infinite;
+        }
+
+        .loading-percentage {
+            color: var(--primary);
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Courier New', monospace;
+        }
+
+        /* Animations */
+        @keyframes gifPulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                filter: drop-shadow(0 0 20px rgba(0, 252, 168, 0.3));
+            }
+
+            50% {
+                transform: scale(1.05);
+                filter: drop-shadow(0 0 30px rgba(0, 252, 168, 0.6));
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+
+            100% {
+                left: 100%;
+            }
+        }
+
+        @keyframes dotPulse {
+
+            0%,
+            80%,
+            100% {
+                transform: scale(0.8);
+                opacity: 0.5;
+            }
+
+            40% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        @keyframes textGlow {
+
+            0%,
+            100% {
+                opacity: 0.7;
+                text-shadow: 0 0 10px rgba(28, 218, 255, 0.3);
+            }
+
+            50% {
+                opacity: 1;
+                text-shadow: 0 0 20px rgba(28, 218, 255, 0.6);
+            }
+        }
+
+        /* Floating background elements */
+        .preloader::before {
+            content: '';
+            position: absolute;
+            top: 20%;
+            left: 10%;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        .preloader::after {
+            content: '';
+            position: absolute;
+            bottom: 30%;
+            right: 15%;
+            width: 8px;
+            height: 8px;
+            background: var(--secondary);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+            opacity: 0.4;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) translateX(0);
+            }
+
+            25% {
+                transform: translateY(-30px) translateX(15px);
+            }
+
+            50% {
+                transform: translateY(-15px) translateX(25px);
+            }
+
+            75% {
+                transform: translateY(-25px) translateX(-15px);
+            }
+        }
+
+        /* Responsive design for preloader */
+        @media (max-width: 768px) {
+            .loading-gif {
+                max-width: 120px;
+                max-height: 120px;
+            }
+
+            .loading-bar {
+                width: 250px;
+            }
+
+            .loading-text {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .loading-gif {
+                max-width: 100px;
+                max-height: 100px;
+            }
+
+            .loading-bar {
+                width: 200px;
+            }
+
+            .preloader-content {
+                transform: translateY(-20px);
+            }
+        }
+
         /* Services Section */
         .section {
             padding: 100px 0;
@@ -957,6 +1225,25 @@
 </head>
 
 <body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-content">
+            <div class="gif-container">
+                <img src="Haivon Solutions.gif" alt="Loading" class="loading-gif"
+                    style="width: 80px; height: 80px; margin: 20px;">
+            </div>
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <div class="loader-dots">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <p class="loading-text">Launching Your Digital Vision</p>
+        </div>
+    </div>
+
     <!-- Header -->
     <header>
         <div class="container">
@@ -987,7 +1274,7 @@
             </div>
             <div class="hero-visual">
                 <div class="spline-container">
-                     <spline-viewer url="https://prod.spline.design/EK7OWy25NOHoCHRD/scene.splinecode"></spline-viewer> 
+                    <spline-viewer url="https://prod.spline.design/EK7OWy25NOHoCHRD/scene.splinecode"></spline-viewer>
                 </div>
             </div>
         </div>
@@ -1376,10 +1663,18 @@
                 <a href="#" class="logo"><img src="Haivon Solutions.png" alt="" style="width: 150px;"></a>
                 <p>Transforming ideas into digital reality</p>
                 <div class="social-links">
-                    <a href="http://wa.me/923153978565"><i class="fab fa-whatsapp"></i></a>
-                    <a href="https://x.com/haivonsolutions/"><i class="fab fa-x"></i></a>
-                    <a href="https://www.linkedin.com/in/h-m-abdullah-khan/"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="https://www.instagram.com/haivon_solutions/"><i class="fab fa-instagram"></i></a>
+                    <a href="http://wa.me/923153978565" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://x.com/haivonsolutions/" title="Twitter/X"><i class="fab fa-x"></i></a>
+                    <a href="https://www.linkedin.com/in/h-m-abdullah-khan/" title="LinkedIn"><i
+                            class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/haivon_solutions/" title="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://www.freelancer.com/u/theabdullahkhan" title="Freelancer" class="freelancer-link">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M14.096 3.076l1.634 2.292L24 3.076M5.503 20.924l4.474-4.374-2.692-2.89m6.133-10.584L11.03 8.086l.487 2.953 1.845-.87M1.741 18.782l3.513-3.299-.75-2.946-2.763 1.246m13.767-9.048L16.3 7.584l-1.08 2.857-.526-.305m2.728 5.118l-2.395.613-.388-2.969 1.093-.28M4.48 11.228l2.39-.613.388 2.969-1.093.28m12.582-2.203l-1.634 2.292-8.27-2.292M10.317 7.72l-4.474 4.374 2.692 2.89" />
+                        </svg>
+                    </a>
                 </div>
             </div>
             <div class="copyright">
@@ -1441,6 +1736,58 @@
                     splineLogo.style.display = 'none';
                 }
             }, 1000);
+        });
+
+        // Preloader Functionality - 5 Seconds
+        window.addEventListener('load', function () {
+            const preloader = document.querySelector('.preloader');
+            const loadingProgress = document.querySelector('.loading-progress');
+            const loadingPercentage = document.querySelector('.loading-percentage');
+
+            let progress = 0;
+            const duration = 5000; // 5 seconds
+            const interval = 50; // Update every 50ms
+            const increment = (100 / duration) * interval;
+
+            // Start progress animation
+            const progressInterval = setInterval(() => {
+                progress += increment;
+
+                if (progress >= 100) {
+                    progress = 100;
+                    clearInterval(progressInterval);
+                }
+
+                // Update progress bar and percentage
+                loadingProgress.style.width = progress + '%';
+                loadingPercentage.textContent = Math.floor(progress) + '%';
+
+            }, interval);
+
+            // Hide preloader after 5 seconds
+            setTimeout(() => {
+                preloader.classList.add('fade-out');
+
+                // Remove preloader from DOM after animation
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 800);
+            }, duration);
+        });
+
+        // Fallback: If page takes longer than 5 seconds to load
+        window.addEventListener('load', function () {
+            const preloader = document.querySelector('.preloader');
+
+            // This ensures preloader hides after max 6 seconds even if load event fires late
+            setTimeout(() => {
+                if (!preloader.classList.contains('fade-out')) {
+                    preloader.classList.add('fade-out');
+                    setTimeout(() => {
+                        preloader.style.display = 'none';
+                    }, 800);
+                }
+            }, 6000);
         });
     </script>
 </body>
